@@ -5,11 +5,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const userRoutes = require('./api/routes/user');
+const productRoutes = require('./api/routes/product');
 
-mongoose.connect("Your Database link goes here", { useNewUrlParser: true });
-// to generate link watch video given in below link
-// https://youtu.be/WDrU305J1yw
-console.log('https://youtu.be/WDrU305J1yw');
+//To connect to the mongoDB
+mongoose
+  .connect(`mongodb+srv://meenakshi-sinha_99:c0I5sKAaX6YFzBEf@cluster0.arkeg.mongodb.net/<dbname>?retryWrites=true&w=majority`, 
+  { useNewUrlParser: true })
+  .then(console.log("DB Connected"));
 
 mongoose.Promise = global.Promise;
 
@@ -31,8 +33,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes which should handle requests
+// Routes that will handle requests
 app.use("/user", userRoutes);
+app.use("/products",productRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
