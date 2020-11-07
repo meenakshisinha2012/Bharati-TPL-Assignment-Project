@@ -7,11 +7,13 @@ import { LoginFormComponent } from './login-form/login-form.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDashboardComponent } from './product-dashboard/product-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
+    ProductDashboardComponent,
   ],
   imports: [
     BrowserModule,
