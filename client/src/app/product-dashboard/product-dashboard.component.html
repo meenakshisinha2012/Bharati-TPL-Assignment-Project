@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-primary">Add Product</button>
+      <!-- Router link for navigating to ADD-PRODUCT Page-->
+      <button class="btn btn-primary" routerLink="/add-product">Add Product</button>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -14,6 +15,8 @@
               <th scope="col">Price</th>
               <th scope="col">Quantity</th>
               <th scope="col">Active</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
 
             </tr>
           </thead>
@@ -25,6 +28,8 @@
               <td>@mdo</td>
               <td>23</td>
               <td>Yes</td>
+              <td><button class="btn btn-info">Edit</button></td>
+              <td><button class="btn btn-danger">Delete</button></td>
             </tr>
 
         </table>
