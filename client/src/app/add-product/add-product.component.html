@@ -1,32 +1,73 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <form>
+      <form [formGroup]="addProductForm" (ngSubmit)="addProduct()" #f="ngForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Product Name</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter product name">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <input
+            type="text"
+            class="form-control"
+            id="productName"
+            aria-describedby="emailHelp"
+            placeholder="Enter product name"
+
+            formControlName="productName"
+
+            required
+          />
+          <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          >
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Category</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter category">
+          <input
+            type="text"
+            class="form-control"
+            id="category"
+            placeholder="Enter category"
+            formControlName="category"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Price</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Price">
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            placeholder="Enter Price"
+
+            formControlName="price"
+
+            required
+          />
         </div>
 
         <div class="form-group">
           <label for="exampleInputPassword1">Quantity</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter quantity">
+          <input
+            type="number"
+            class="form-control"
+            id="quantity"
+            placeholder="Enter quantity"
+            formControlName="quantity"
+            required
+          />
         </div>
 
         <div class="form-group">
           <label for="exampleInputPassword1">Active</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter active status">
-        </div> `
-
-        <button type="submit" class="btn btn-primary">Save</button>
+          <input
+            type="text"
+            class="form-control"
+            id="active"
+            placeholder="Enter active status"
+            formControlName="active"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button>
       </form>
     </div>
   </div>

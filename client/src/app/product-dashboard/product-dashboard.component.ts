@@ -1,4 +1,8 @@
+import { ProductService } from './../product.service';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from './products';
 
 @Component({
   selector: 'app-product-dashboard',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-dashboard.component.css']
 })
 export class ProductDashboardComponent implements OnInit {
-
-  constructor() { }
+  public products: any;
+  constructor(
+    private http: HttpClient,
+    private _productService: ProductService
+  ) { }
 
   ngOnInit() {
-  }
 
+    this._productService.getProducts().subscribe(data => {
+      this.products = data;
+      console.log(this.products);
+    });
+
+  }
 }
