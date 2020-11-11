@@ -43,6 +43,7 @@ export class AddProductComponent implements OnInit {
 
     // Add Product Service is being called
     this._productService.addProduct(data);
+    this.router.navigate(['/product-dashboard']);
   }
 
 
