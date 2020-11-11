@@ -1,40 +1,48 @@
 <div class="container">
   <div class="row">
+    <div class="col-12 ">
+      <h1>Product Dashboard</h1>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-12">
       <!-- Router link for navigating to ADD-PRODUCT Page-->
-      <button class="btn btn-primary" routerLink="/add-product">Add Product</button>
+      <button class="btn btn-primary addProduct" routerLink="/add-product">
+        Add Product
+      </button>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Category</th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Active</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of products; index as i" >
-              <th scope="row">{{i+1}}</th>
-              <td>{{item.product_name}}</td>
-              <td>{{item.category}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.quantity}}</td>
-              <td>{{item.active}}</td>
-              <td><button class="btn btn-info">Edit</button></td>
-              <td><button class="btn btn-danger" (click)="deleteProduct(item._id)">Delete</button></td>
-
-            </tr>
-
-        </table>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Active</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ item.product_name }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.active }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteProduct(item._id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
