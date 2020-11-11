@@ -1,3 +1,4 @@
+import { ProductService } from './../product.service';
 import { ActivatedRoute, NavigationExtras, Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -16,7 +17,8 @@ export class AddProductComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private _productService : ProductService
   ) { }
 
   ngOnInit() {
@@ -36,18 +38,11 @@ export class AddProductComponent implements OnInit {
       price: this.addProductForm.get('price').value,
       quantity: this.addProductForm.get('quantity').value,
       active: this.addProductForm.get('active').value,
+
     };
 
-    this.http.post('http://localhost:3000/products/add-product/', data).subscribe((response: any) => {
-
-      console.log(response);
-      alert('Product Added Successfully');
-      // to navigate to the Product dashboard after successfull addition of products
-      this.router.navigate(['/product-dashboard']);
-    }, (error) => {
-      console.log(error);
-      alert('Product not added');
-    });
+    // Add Product Service is being called
+    this._productService.addProduct(data);
   }
 
 
