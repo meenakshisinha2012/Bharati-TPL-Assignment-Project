@@ -32,7 +32,7 @@ exports.add_product = (req, res, next) => {
 
 exports.delete_product = (req, res, next) => {
   const id = req.params.productId;
-  product
+  Product
     .remove({ _id: id })
     .exec()
     .then((result) => {
