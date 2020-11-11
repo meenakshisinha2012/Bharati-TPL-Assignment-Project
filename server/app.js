@@ -1,15 +1,16 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const userRoutes = require('./api/routes/user');
 const productRoutes = require('./api/routes/product');
 
 //To connect to the mongoDB
 mongoose
-  .connect(`mongodb+srv://meenakshi-sinha_99:c0I5sKAaX6YFzBEf@cluster0.arkeg.mongodb.net/<dbname>?retryWrites=true&w=majority`, 
+  .connect(process.env.DATABASE, 
   { useNewUrlParser: true })
   .then(console.log("DB Connected"));
 
@@ -34,7 +35,6 @@ app.use((req, res, next) => {
 });
 
 // Routes that will handle requests
-app.use("/user", userRoutes);
 app.use("/products",productRoutes);
 
 app.use((req, res, next) => {

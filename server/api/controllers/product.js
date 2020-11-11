@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-const User = require("../models/user");
 const Product = require("../models/product");
-const product = require("../models/product");
 
 exports.show_product = (req, res, next) => {
   Product.find()
@@ -25,18 +23,11 @@ exports.add_product = (req, res, next) => {
 
   product.save((err, data) => {
     if (err) {
-      
-      console.log('',err )
+      console.log("", err);
       return res.status(400).json({ msg: err });
     }
     res.json(data);
   });
-  // const name=req.body.name;
-  // res.status(200).json({ msg: name })
-};
-
-exports.user_delete = (req, res, next) => {
-  res.status(200).json({ msg: "user_delete works" });
 };
 
 exports.delete_product = (req, res, next) => {
