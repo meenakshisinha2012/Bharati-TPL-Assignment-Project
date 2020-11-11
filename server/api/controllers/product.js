@@ -25,6 +25,8 @@ exports.add_product = (req, res, next) => {
 
   product.save((err, data) => {
     if (err) {
+      
+      console.log('',err )
       return res.status(400).json({ msg: err });
     }
     res.json(data);
