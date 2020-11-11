@@ -25,8 +25,8 @@ export class ProductDashboardComponent implements OnInit {
 
   // To delete the product
   deleteProduct(productId: any) {
-    console.log(productId);
     this._productService.deleteProduct(productId);
+    alert('Product deletion in process...');
     location.reload();
   }
 }

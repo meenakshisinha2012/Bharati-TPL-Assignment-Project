@@ -7,9 +7,12 @@ import { Product } from './product-dashboard/products';
   providedIn: 'root'
 })
 export class ProductService {
-  private _addProductUrl = 'http://localhost:3000/products/add-product/';
-  private _showProductsUrl = 'http://localhost:3000/products/show-product';
-  private _deleteProductUrl = 'http://localhost:3000/products/delete-product/';
+  private api = 'https://bharati-tpl-assignment-api.herokuapp.com/' ;
+
+  private _addProductUrl = this.api + 'products/add-product/';
+  private _showProductsUrl = this.api + 'products/show-product';
+  private _deleteProductUrl = this.api + 'products/delete-product/';
+
   constructor(private http: HttpClient) { }
 
   addProduct(data) {
