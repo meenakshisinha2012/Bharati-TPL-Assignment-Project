@@ -12,7 +12,7 @@
     "restful",
     "api"
   ],
-  "author": "Maximilian Schwarzmüller",
+  "author": "Meenakshi Sinha",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",

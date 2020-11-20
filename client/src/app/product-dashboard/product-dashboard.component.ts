@@ -10,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class ProductDashboardComponent implements OnInit {
   public products: any;
   constructor(
-    private http: HttpClient,
     private _productService: ProductService,
   ) { }
 
